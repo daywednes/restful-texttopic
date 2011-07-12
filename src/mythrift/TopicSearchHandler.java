@@ -27,8 +27,8 @@ public class TopicSearchHandler implements TopicSearch.Iface {
   public TopicSearchHandler() {
     vocabularyName = "agrovoc_en";
     modelName = "fao30";
-    dataDirectory = "../Maui1.2/";
-    storedRequestDirectory = "../Maui1.2/requests/";
+    dataDirectory = ".";
+    storedRequestDirectory = "./requests/";
     boolean success = new File(storedRequestDirectory).mkdir();
     if ( success )
       logger.logInfo("Succeed to create hte directory " + storedRequestDirectory);
