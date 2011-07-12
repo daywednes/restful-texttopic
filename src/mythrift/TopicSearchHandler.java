@@ -27,7 +27,7 @@ public class TopicSearchHandler implements TopicSearch.Iface {
   public TopicSearchHandler() {
     vocabularyName = "agrovoc_en";
     modelName = "fao30";
-    dataDirectory = ".";
+    dataDirectory = "./";
     storedRequestDirectory = "./requests/";
     boolean success = new File(storedRequestDirectory).mkdir();
     if ( success )
