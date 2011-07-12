@@ -1,0 +1,35 @@
+<project name="maui1.2-thrift-server" basedir="." default="compile">
+	<description>Maui thrift server</description>
+	<property name="src" location="src" />
+	<property name="build" location="build" />
+	<property name="test" location="test" />
+	<property name="lib" location="lib" />
+	<path id="libs.classpath">
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${build}"/>
+	</path>
+
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${build}" />
+		<mkdir dir="${test}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac includeantruntime="no" verbose="true" srcdir="${src}" encoding="UTF-8" destdir="${build}" classpathref="libs.classpath" />
+	</target>
+
+	<target name="run" depends="compile" description="Run Server">
+		<java classpathref="libs.classpath" classname="mythrift.JavaServer" fork="true">
+			<jvmarg value="-Xmx1024m" />
+		</java>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+
+</project>
